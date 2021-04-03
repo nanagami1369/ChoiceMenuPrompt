@@ -15,6 +15,24 @@ namespace ColorSelectPrompt
             Console.CursorTop -= menuItems.Length;
         }
 
+        private static int ConsoleNumberKeyToInteger(ConsoleKey key)
+        {
+            return key switch
+            {
+                ConsoleKey.D0 or
+                ConsoleKey.D1 or
+                ConsoleKey.D2 or
+                ConsoleKey.D3 or
+                ConsoleKey.D4 or
+                ConsoleKey.D5 or
+                ConsoleKey.D6 or
+                ConsoleKey.D7 or
+                ConsoleKey.D8 or
+                ConsoleKey.D9 => (int)key - 48,
+                _ => throw new ArgumentException("not number key"),
+            };
+        }
+
         private static void PrintSelectMenu(string[] menuItems, int selectIndex)
         {
             var lastIndex = menuItems.Length;
@@ -73,6 +91,25 @@ namespace ColorSelectPrompt
                         }
                         Console.CursorTop -= menuItems.Length;
                         PrintSelectMenu(menuItems, selectIndex);
+                        continue;
+                    // 数字キーで項目があるならそこまで移動
+                    case ConsoleKey.D0:
+                    case ConsoleKey.D1:
+                    case ConsoleKey.D2:
+                    case ConsoleKey.D3:
+                    case ConsoleKey.D4:
+                    case ConsoleKey.D5:
+                    case ConsoleKey.D6:
+                    case ConsoleKey.D7:
+                    case ConsoleKey.D8:
+                    case ConsoleKey.D9:
+                        var selectNumber = ConsoleNumberKeyToInteger(key.Key);
+                        if (selectNumber < menuItems.Length)
+                        {
+                            selectIndex = selectNumber;
+                            Console.CursorTop -= menuItems.Length;
+                            PrintSelectMenu(menuItems, selectIndex);
+                        }
                         continue;
                     default:
                         continue;
