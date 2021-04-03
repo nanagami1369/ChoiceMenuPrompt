@@ -1,12 +1,15 @@
-﻿using System;
+using ColorSelectPrompt;
+using System;
 
 namespace ColorSelectPromptSample
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
-            Console.WriteLine("Hello World!");
+            string[] menuItem = { "晴れ", "曇り", "雨", "ポケモン", "猫", "犬", "熊", "華麗", "美麗", "勇気", "根性" };
+            var result = Prompt.Print("好きなものは？", menuItem);
+            Console.WriteLine(result);
         }
     }
 }
