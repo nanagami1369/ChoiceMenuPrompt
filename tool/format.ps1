@@ -2,6 +2,7 @@ $ProjectRootDir = "$PSScriptRoot/../"
 # プロジェクトのディレクトリへ移動
 Push-Location $ProjectRootDir
 # フォーマット
-jb cleanupcode --exclude="**/*.xaml" .\ChoiceMenuPrompt.sln
+$slnFile = Get-Item *.sln
+jb cleanupcode --exclude="**/*.xaml" $slnFile
 # 元のディレクトリへ
 Pop-Location
