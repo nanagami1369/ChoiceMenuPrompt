@@ -1,5 +1,5 @@
-using ColorSelectPrompt;
 using System;
+using ColorSelectPrompt;
 
 namespace ColorSelectPromptSample
 {
@@ -7,7 +7,7 @@ namespace ColorSelectPromptSample
     {
         private static void Main()
         {
-            string[] menuItem = { "晴れ", "曇り", "雨", "ポケモン", "猫", "犬", "熊", "華麗", "美麗", "勇気", "根性" };
+            string[] menuItem = {"晴れ", "曇り", "雨", "ポケモン", "猫", "犬", "熊", "華麗", "美麗", "勇気", "根性"};
             var result = Prompt.Print("好きなものは？", menuItem);
             Console.WriteLine(result);
         }

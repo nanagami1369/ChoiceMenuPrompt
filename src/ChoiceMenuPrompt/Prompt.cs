@@ -8,10 +8,7 @@ namespace ColorSelectPrompt
         private static void ClearSelectMenu(string[] menuItems)
         {
             Console.CursorTop -= menuItems.Length;
-            foreach (var _ in menuItems)
-            {
-                Console.WriteLine(new string(' ', Console.BufferWidth));
-            }
+            foreach (var _ in menuItems) Console.WriteLine(new string(' ', Console.BufferWidth));
             Console.CursorTop -= menuItems.Length;
         }
 
@@ -20,16 +17,16 @@ namespace ColorSelectPrompt
             return key switch
             {
                 ConsoleKey.D0 or
-                ConsoleKey.D1 or
-                ConsoleKey.D2 or
-                ConsoleKey.D3 or
-                ConsoleKey.D4 or
-                ConsoleKey.D5 or
-                ConsoleKey.D6 or
-                ConsoleKey.D7 or
-                ConsoleKey.D8 or
-                ConsoleKey.D9 => (int)key - 48,
-                _ => throw new ArgumentException("not number key"),
+                    ConsoleKey.D1 or
+                    ConsoleKey.D2 or
+                    ConsoleKey.D3 or
+                    ConsoleKey.D4 or
+                    ConsoleKey.D5 or
+                    ConsoleKey.D6 or
+                    ConsoleKey.D7 or
+                    ConsoleKey.D8 or
+                    ConsoleKey.D9 => (int) key - 48,
+                _ => throw new ArgumentException("not number key")
             };
         }
 
@@ -37,8 +34,7 @@ namespace ColorSelectPrompt
         {
             var lastIndex = menuItems.Length;
             var largestDigit = lastIndex.ToString().Length;
-            for (int index = 0; index < menuItems.Length; index++)
-            {
+            for (var index = 0; index < menuItems.Length; index++)
                 if (selectIndex == index)
                 {
                     Console.BackgroundColor = ConsoleColor.Blue;
@@ -50,14 +46,13 @@ namespace ColorSelectPrompt
                 {
                     Console.WriteLine($"{index.ToString().PadLeft(largestDigit)}:{menuItems[index]}");
                 }
-            }
         }
 
         public static int Print(string message, string[] menuItems)
         {
             var currentOutputEncoding = Console.OutputEncoding;
             Console.OutputEncoding = new UTF8Encoding(false);
-            int selectIndex = 0;
+            var selectIndex = 0;
             Console.WriteLine($"{message} [↑キー ↓キー:移動 Enter:確定]");
             PrintSelectMenu(menuItems, selectIndex);
             while (true)
@@ -76,19 +71,13 @@ namespace ColorSelectPrompt
                         return selectIndex;
                     // ↑キーで移動
                     case ConsoleKey.UpArrow:
-                        if (selectIndex > 0)
-                        {
-                            selectIndex--;
-                        }
+                        if (selectIndex > 0) selectIndex--;
                         Console.CursorTop -= menuItems.Length;
                         PrintSelectMenu(menuItems, selectIndex);
                         continue;
                     // ↓キーで移動
                     case ConsoleKey.DownArrow:
-                        if (selectIndex < menuItems.Length - 1)
-                        {
-                            selectIndex++;
-                        }
+                        if (selectIndex < menuItems.Length - 1) selectIndex++;
                         Console.CursorTop -= menuItems.Length;
                         PrintSelectMenu(menuItems, selectIndex);
                         continue;
@@ -110,6 +99,7 @@ namespace ColorSelectPrompt
                             Console.CursorTop -= menuItems.Length;
                             PrintSelectMenu(menuItems, selectIndex);
                         }
+
                         continue;
                     default:
                         continue;

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ColorSelectPrompt\ColorSelectPrompt.csproj" />
+    <ProjectReference Include="..\ChoiceMenuPrompt\ChoiceMenuPrompt.csproj" />
   </ItemGroup>
 
 </Project>
