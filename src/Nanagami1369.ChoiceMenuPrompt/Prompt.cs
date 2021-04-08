@@ -14,11 +14,8 @@ namespace Nanagami1369.ColorSelectPrompt
 
         private static int ConsoleNumberKeyToInteger(ConsoleKey key)
         {
-            var number = (int)key - 48;
-            if (0 <= number && number < 10)
-            {
-                return number;
-            }
+            var number = (int) key - 48;
+            if (0 <= number && number < 10) return number;
             throw new ArgumentException("not number key");
         }
 
