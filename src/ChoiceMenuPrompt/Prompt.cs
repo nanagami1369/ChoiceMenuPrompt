@@ -14,20 +14,12 @@ namespace ColorSelectPrompt
 
         private static int ConsoleNumberKeyToInteger(ConsoleKey key)
         {
-            return key switch
+            var number = (int)key - 48;
+            if (0 <= number && number < 10)
             {
-                ConsoleKey.D0 or
-                    ConsoleKey.D1 or
-                    ConsoleKey.D2 or
-                    ConsoleKey.D3 or
-                    ConsoleKey.D4 or
-                    ConsoleKey.D5 or
-                    ConsoleKey.D6 or
-                    ConsoleKey.D7 or
-                    ConsoleKey.D8 or
-                    ConsoleKey.D9 => (int) key - 48,
-                _ => throw new ArgumentException("not number key")
-            };
+                return number;
+            }
+            throw new ArgumentException("not number key");
         }
 
         private static void PrintSelectMenu(string[] menuItems, int selectIndex)
