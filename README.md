@@ -2,7 +2,7 @@
 
 コンソールに色付きの、きれいなプロンプトを表示するライブラリー
 
-<img src="./readme-image/menuSelectSample.gif" alt="メニューの動いている様子" title="メニューの動いている様子" >
+<img src="https://raw.githubusercontent.com/nanagami1369/ChoiceMenuPrompt/main/readme-image/menuSelectSample.gif" alt="メニューの動いている様子" title="メニューの動いている様子" >
 
 # 使い方
 
