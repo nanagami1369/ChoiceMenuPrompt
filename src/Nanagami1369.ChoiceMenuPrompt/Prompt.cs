@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace ColorSelectPrompt
+namespace Nanagami1369.ColorSelectPrompt
 {
     public static class Prompt
     {

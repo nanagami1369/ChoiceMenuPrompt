@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChoiceMenuPrompt\ChoiceMenuPrompt.csproj" />
+    <ProjectReference Include="..\Nanagami1369.ChoiceMenuPrompt\Nanagami1369.ChoiceMenuPrompt.csproj" />
   </ItemGroup>
 
 </Project>

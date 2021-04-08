@@ -1,7 +1,6 @@
 using System;
-using ColorSelectPrompt;
 
-namespace ColorSelectPromptSample
+namespace Nanagami1369.ColorSelectPrompt.Sample
 {
     internal class Program
     {
